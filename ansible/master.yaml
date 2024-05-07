@@ -1,0 +1,30 @@
+- name: set up the master cluster-jenkins
+  hosts: master
+  roles:
+    - core
+    - java
+    - docker
+    - jenkins
+  tasks:
+    - name: make groovy configurtion file
+      template:
+        src:
+        dest:
+        owner: 
+    - name: skip manual wizerd
+      template:
+        src: template/wizerd-skipper.groovy
+        dest: /var/lib/jenkins/init.groovy.d/basic-security.groovy
+        owner: jenkins
+
+
+
+
+
+
+
+
+
+
+
+  
